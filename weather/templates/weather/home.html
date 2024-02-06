@@ -8,6 +8,30 @@
 
 
 {% block content %}
-    <h1> the Weather is good </h1>
+
+
+{% if api %}
+
+    {% if api == "Error..." %}
+        <p>there was an error , please try again.</p>
+
+    {% else %}
+        Air quality : {{api.0.AQI}}
+        <br>
+        ReportingArea : {{api.0.ReportingArea}} <br>
+        <br>
+        <br>
+
+
+    {% endif %}
+
+    
+        
+
+{% endif %}
+    
+
+
+
 {% endblock content %}
     
