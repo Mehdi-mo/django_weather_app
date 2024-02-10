@@ -10,17 +10,38 @@
 {% block content %}
 
 
+
+
+    
+
+
 {% if api %}
 
     {% if api == "Error..." %}
         <p>there was an error , please try again.</p>
 
     {% else %}
-        Air quality : {{api.0.AQI}}
-        <br>
-        ReportingArea : {{api.0.ReportingArea}} <br>
-        <br>
-        <br>
+        
+        
+        {% if zipcode %}
+            <div class="jumbotron border-box">
+                <!-- Your existing code goes here -->
+                <h1 class="display-4">{{api.0.Category.Name}}</h1>
+                <p>Air quality : {{api.0.AQI}}</p>
+                <p class="lead">Reporting Area : {{api.0.ReportingArea}} </p>
+            </div>
+        
+            
+            
+        {% endif %}
+
+        
+        
+
+
+
+
+        
 
 
     {% endif %}
@@ -28,6 +49,13 @@
     
         
 
+{% else %}
+    <div class="jumbotron border-box">
+                    
+        <p>the zipcode you have inserted is not valid in USA</p>
+
+    </div>
+    
 {% endif %}
     
 
